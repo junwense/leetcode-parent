@@ -4,7 +4,7 @@ import java.util.Stack;
 
 /**
  * @ClassName leetcode85
- * @Description: TODO
+ * @Description: 最大矩阵
  * @Author a9705
  * @Date 2022/7/23
  * @Version V1.0
@@ -30,7 +30,7 @@ public class leetcode85 {
                     temp[j] = 0;
                 }
             }
-
+            //按行读取矩阵后，temp里面存的就是一个最大矩阵的数组
             ans = Math.max(ans, largestRectangleArea(temp));
         }
 
@@ -50,7 +50,7 @@ public class leetcode85 {
     /**
      * 单调栈求最大矩形
      * 空间复杂度 2n
-     * 时间复杂度 1
+     * 时间复杂度 n
      */
     public int largestRectangleArea(int[] heights) {
 
@@ -84,6 +84,55 @@ public class leetcode85 {
             }
         }
 
+        return ans;
+    }
+
+    /**
+     * 优化后的计算最大矩形方法
+     * 空间复杂度 3n
+     * 时间复杂度 n
+     * @param heights
+     * @return
+     */
+    public int largestRectangleArea1(int[] heights) {
+        int n = heights.length;
+        //边界条件判断
+        if(n == 0){
+            return 0;
+        }
+        if(n == 1){
+            return heights[0];
+        }
+        //left记录元素左边第一个小于它的元素的下标
+        //right记录元素右边第一个小于它的元素的下标
+        int[] left = new int[n];
+        int[] right = new int[n];
+        //stack是用来模拟栈的数组 ，类似于heights的索引素组
+        int[] stack = new int[n+1];
+        //tt记录栈中元素位置
+        int tt = 0;
+        for (int i = 0; i < n; i++) {
+            //遍历栈，直到下标元素小于heights[i]
+            while (tt != 0 && heights[stack[tt]] >= heights[i]) {
+                tt--;
+            }
+            left[i] = (tt == 0) ? -1 : stack[tt];
+            stack[++tt] = i;
+        }
+
+        //将tt置为0即可当做一个空栈，用来找每个元素右边第一个小于它的元素的下标
+        tt = 0;
+        for (int i = n - 1; i >= 0; i--) {
+            while (tt != 0 && heights[stack[tt]] >= heights[i]) {
+                tt--;
+            }
+            right[i] = (tt == 0) ? n : stack[tt];
+            stack[++tt] = i;
+        }
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            ans = Math.max(ans, heights[i] * (right[i] - left[i] - 1));
+        }
         return ans;
     }
 }

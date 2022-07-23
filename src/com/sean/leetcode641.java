@@ -2,7 +2,7 @@ package com.sean;
 
 /**
  * @ClassName leetcode641
- * @Description: TODO
+ * @Description: 设计循环双端队列
  * @Author a9705
  * @Date 2022/7/22
  * @Version V1.0
@@ -21,13 +21,17 @@ public class leetcode641 {
      */
     static class MyCircularDeque {
 
+        //用于存储元素
         private int[] myArrays;
-        //private int size=0;
+        //数组容量
         private int cap;
+        //头节点
         private int head = 0;
+        //尾节点
         private int tail = 1;
 
         public MyCircularDeque(int k) {
+            //默认是容量+2，因为需要2个位置存放节点
             this.myArrays = new int[k + 2];
             this.cap = k + 2;
         }
@@ -87,6 +91,9 @@ public class leetcode641 {
             return true;
         }
 
+        /**
+         * 时间复杂度 o(1)
+         */
         public int getFront() {
             if (isEmpty()) {
                 return -1;
@@ -94,6 +101,9 @@ public class leetcode641 {
             return myArrays[(head + 1) % cap];
         }
 
+        /**
+         * 时间复杂度 o(1)
+         */
         public int getRear() {
             if (isEmpty()) {
                 return -1;
