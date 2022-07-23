@@ -1,8 +1,6 @@
 package com.sean;
 
 import com.sean.base.ListNode;
-import com.sun.org.glassfish.gmbal.Description;
-import com.sun.xml.internal.bind.v2.TODO;
 
 /**
  * @ClassName leetcode142

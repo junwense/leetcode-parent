@@ -84,6 +84,10 @@ public class acwing136 {
 
         int size = a.length;
 
+        if(size==1){
+            System.out.println("输入非法");
+        }
+
         // a[1,5,3]
         // rk[a[1],a[3],a[2]]  [1,3,2]
         Index[] rk=new Index[size];
