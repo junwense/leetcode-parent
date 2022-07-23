@@ -86,6 +86,7 @@ public class acwing136 {
 
         if(size==1){
             System.out.println("输入非法");
+            return;
         }
 
         // a[1,5,3]
@@ -94,6 +95,7 @@ public class acwing136 {
         for (int i = 0; i < size; i++) {
             rk[i]=new Index(a[i],i);
         }
+        //排序数组
         Arrays.sort(rk);
         int mixNum=rk[0].value-1000000001;
         int maxNum=rk[size-1].value+1000000001;
@@ -102,6 +104,7 @@ public class acwing136 {
         head.next = tail;
         tail.pre = head;
 
+        //把rk数组添加到指针数组，同时构建链表
         DqListNode<Index>[] pos = new DqListNode[size];
         for (int i = 0; i < size; i++) {
             DqListNode dqListNode = new DqListNode(rk[i]);
