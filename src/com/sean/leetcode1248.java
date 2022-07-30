@@ -25,9 +25,11 @@ public class leetcode1248 {
         }
         int[] count=new int[size+1];
         //定义一个count数组 ，假如 count[1]=2 则 preSum 中值为1的节点有2个
+        //使用数组是一种优化，因为这里preSum的值始终大于0且值的范围不大，不会超过size，可以使用数组当作寻址列表
         count[preSum[0]]++;
         for (int i = 1; i <= size; i++) {
             //这里用preSum[i]-k，主要是为了找到 preSum中值为preSum[i]-k的下标
+            //这里校验大于0，主要是防止数组越界
             if(preSum[i]-k>=0){
                 //preSum中值为preSum[i]-k 的下标个数记录在count[preSum[i]-k]中，直接加总到ans里
                 ans+=count[preSum[i]-k];
