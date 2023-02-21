@@ -11,7 +11,7 @@ public class leetcode226 {
 
     public TreeNode invertTree(TreeNode root) {
 
-        if(root==null){
+        if (root == null) {
             return null;
         }
 
@@ -21,9 +21,9 @@ public class leetcode226 {
         return root;
     }
 
-    private void swap(TreeNode treeNode){
-        TreeNode temp=treeNode.right;
-        treeNode.right=treeNode.left;
-        treeNode.left=temp;
+    private void swap(TreeNode treeNode) {
+        TreeNode temp = treeNode.right;
+        treeNode.right = treeNode.left;
+        treeNode.left = temp;
     }
 }

@@ -35,7 +35,7 @@ public class leetcode46 {
                 temp.add(nums[i]);
                 visited[i] = true;
                 res(nums);
-                temp.remove(temp.size()-1);
+                temp.remove(temp.size() - 1);
                 visited[i] = false;
             }
         }

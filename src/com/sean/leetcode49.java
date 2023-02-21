@@ -1,6 +1,9 @@
 package com.sean;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName leetcode49
@@ -18,15 +21,15 @@ public class leetcode49 {
     }
 
     public List<List<String>> groupAnagrams(String[] strs) {
-        List<List<String>> ans =new LinkedList<>();
-        Map<String,List<String>> temp=new HashMap<>(strs.length);
+        List<List<String>> ans = new LinkedList<>();
+        Map<String, List<String>> temp = new HashMap<>(strs.length);
         for (String str : strs) {
             String hash = getHash(str);
             if (!temp.containsKey(hash)) {
                 List<String> list = new LinkedList<>();
                 list.add(str);
                 temp.put(hash, list);
-            }else{
+            } else {
                 temp.get(hash).add(str);
             }
         }
@@ -39,9 +42,9 @@ public class leetcode49 {
      * hash 26进制
      */
     protected String getHash(String s) {
-        char[] temp=new char[26];
+        char[] temp = new char[26];
         for (char c : s.toCharArray()) {
-            temp[c-'a']++;
+            temp[c - 'a']++;
         }
         return new String(temp);
     }

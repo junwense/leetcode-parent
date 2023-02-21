@@ -11,23 +11,23 @@ import com.sean.base.ListNode;
  **/
 public class leetcode23 {
     public ListNode mergeKLists(ListNode[] lists) {
-        return mergeInternally(lists,0,lists.length-1);
+        return mergeInternally(lists, 0, lists.length - 1);
     }
 
-    public ListNode mergeInternally(ListNode[] lists, int start, int end ){
+    public ListNode mergeInternally(ListNode[] lists, int start, int end) {
 
-        if(start>end){
+        if (start > end) {
             return null;
         }
 
-        if(start==end){
+        if (start == end) {
             return lists[start];
         }
 
-        int pivot =(end+start)/2;
-        ListNode left=mergeInternally(lists,start,pivot);
-        ListNode right=mergeInternally(lists,pivot+1,end);
-        return  mergeTwoLists(left,right);
+        int pivot = (end + start) / 2;
+        ListNode left = mergeInternally(lists, start, pivot);
+        ListNode right = mergeInternally(lists, pivot + 1, end);
+        return mergeTwoLists(left, right);
         //return head.next;
     }
 
@@ -54,7 +54,7 @@ public class leetcode23 {
         //最后把剩下的数组连接上
         if (list1 != null) {
             head.next = list1;
-        }else{
+        } else {
             head.next = list2;
         }
 

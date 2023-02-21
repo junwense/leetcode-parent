@@ -1,6 +1,9 @@
 package com.sean;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName leetcode30
@@ -64,6 +67,7 @@ public class leetcode30 {
     /**
      * 时间复杂度 O() s长度 *word长度
      * 空间复杂度 O() words 单词数 * words长度
+     *
      * @param s
      * @param words
      * @return

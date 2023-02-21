@@ -15,6 +15,7 @@ public class leetcode21 {
      * 直接链表遍历
      * 时间复杂度 O(n)
      * 空间复杂度 O(n*n)
+     *
      * @param list1
      * @param list2
      * @return
@@ -42,7 +43,7 @@ public class leetcode21 {
         //最后把剩下的数组连接上
         if (list1 != null) {
             head.next = list1;
-        }else{
+        } else {
             head.next = list2;
         }
 
@@ -53,7 +54,8 @@ public class leetcode21 {
      * 递归
      * 时间复杂度 O(n)
      * 空间复杂度 O(n*n)
-      * @param list1
+     *
+     * @param list1
      * @param list2
      * @return
      */

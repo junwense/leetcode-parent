@@ -32,9 +32,9 @@ public class leetcode1074 {
                 //前缀和
                 sum[i][j] = sum[i][j - 1] + sum[i - 1][j] - sum[i - 1][j - 1] + matrix[i - 1][j - 1];
 
-                for (int q = i; q >=1 ; q--) {
-                    for (int p = j; p >=1 ; p--) {
-                        if(target==getChildMatrixSum(i,j,q,p,sum)){
+                for (int q = i; q >= 1; q--) {
+                    for (int p = j; p >= 1; p--) {
+                        if (target == getChildMatrixSum(i, j, q, p, sum)) {
                             ans++;
                         }
                     }
@@ -44,6 +44,7 @@ public class leetcode1074 {
         }
 
         //子矩阵和
+        //可以考虑用hash保存一条边后处理
         for (int i = n; i >= 1; i--) {
             for (int j = m; j >= 1; j--) {
                 for (int q = 1; q <= i; q++) {
@@ -54,7 +55,7 @@ public class leetcode1074 {
 //                        }else{
 //                            store.add(key);
 //                        }
-                        if(target==getChildMatrixSum(i,j,q,p,sum)){
+                        if (target == getChildMatrixSum(i, j, q, p, sum)) {
                             ans++;
                         }
                     }

@@ -10,25 +10,25 @@ package com.sean;
 public class leetcode84_1 {
 
     public static void main(String[] args) {
-        System.out.println(new leetcode84_1().largestRectangleArea(new int[]{2,1,5,6,2,3}));
+        System.out.println(new leetcode84_1().largestRectangleArea(new int[]{2, 1, 5, 6, 2, 3}));
     }
 
     public int largestRectangleArea1(int[] heights) {
         int n = heights.length;
         //边界条件判断
-        if(n == 0){
+        if (n == 0) {
             return 0;
         }
-        if(n == 1){
+        if (n == 1) {
             return heights[0];
         }
-        int ans=0;
+        int ans = 0;
         //left记录元素左边第一个小于它的元素的下标
         //right记录元素右边第一个小于它的元素的下标
         int[] left = new int[n];
         int[] right = new int[n];
         //stack是用来模拟栈的数组 ，类似于heights的索引素组
-        int[] stack = new int[n+1];
+        int[] stack = new int[n + 1];
 
         return ans;
     }
@@ -36,10 +36,10 @@ public class leetcode84_1 {
     public int largestRectangleArea(int[] heights) {
         int n = heights.length;
         //边界条件判断
-        if(n == 0){
+        if (n == 0) {
             return 0;
         }
-        if(n == 1){
+        if (n == 1) {
             return heights[0];
         }
         //left记录元素左边第一个小于它的元素的下标
@@ -47,7 +47,7 @@ public class leetcode84_1 {
         int[] left = new int[n];
         int[] right = new int[n];
         //stack是用来模拟栈的数组 ，类似于heights的索引素组
-        int[] stack = new int[n+1];
+        int[] stack = new int[n + 1];
         //tt记录栈中元素位置
         int tt = 0;
         for (int i = 0; i < n; i++) {

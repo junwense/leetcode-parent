@@ -36,7 +36,7 @@ public class leetcode224 {
                 tempNumStr += c;
                 continue;
             } else {
-                if(!"".equals(tempNumStr)){
+                if (!"".equals(tempNumStr)) {
                     strings.add(tempNumStr);
                     tempNumStr = "";
                 }

@@ -1,7 +1,6 @@
 package com.sean;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -13,36 +12,36 @@ import java.util.List;
  **/
 public class leetcode77 {
     public List<List<Integer>> combine(int n, int k) {
-        this.n=n;
-        this.k=k;
-        res(n,0);
+        this.n = n;
+        this.k = k;
+        res(n, 0);
         return ans;
 
     }
 
-    List<Integer> temp=new ArrayList<>();
+    List<Integer> temp = new ArrayList<>();
 
     int n;
 
     int k;
 
-    List<List<Integer>> ans=new ArrayList<>();
+    List<List<Integer>> ans = new ArrayList<>();
 
-    private void res(int num,int pos){
+    private void res(int num, int pos) {
 
-        if(temp.size()>k||temp.size()+n-pos<k){
+        if (temp.size() > k || temp.size() + n - pos < k) {
             return;
         }
 
-        if(pos==n){
+        if (pos == n) {
             ans.add(new ArrayList<>(temp));
             return;
         }
 
-        res(n,pos+1);
-        temp.add(pos+1);
-        res(n,pos+1);
-        temp.remove(temp.size()-1);
+        res(n, pos + 1);
+        temp.add(pos + 1);
+        res(n, pos + 1);
+        temp.remove(temp.size() - 1);
     }
 
 }

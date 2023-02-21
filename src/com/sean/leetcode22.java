@@ -15,15 +15,15 @@ import java.util.Map;
 public class leetcode22 {
 
     public static void main(String[] args) {
-        List<String> test=new ArrayList<>();
+        List<String> test = new ArrayList<>();
         test.add("");
-        test.forEach(a-> System.out.println(a));
+        test.forEach(a -> System.out.println(a));
         System.out.println(test);
         System.out.println(new leetcode22().generateParenthesis(2));
 
     }
 
-    Map<Integer,List<String>> cache=new HashMap<>();
+    Map<Integer, List<String>> cache = new HashMap<>();
 
     public List<String> generateParenthesis(int n) {
         if (n == 0) {
@@ -32,7 +32,7 @@ public class leetcode22 {
             return list;
         }
 
-        if(cache.containsKey(n)){
+        if (cache.containsKey(n)) {
             return cache.get(n);
         }
         List<String> ans = new ArrayList<>();

@@ -22,9 +22,9 @@ public class leetcode641 {
     static class MyCircularDeque {
 
         //用于存储元素
-        private int[] myArrays;
+        private final int[] myArrays;
         //数组容量
-        private int cap;
+        private final int cap;
         //头节点
         private int head = 0;
         //尾节点

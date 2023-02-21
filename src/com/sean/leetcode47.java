@@ -26,6 +26,7 @@ public class leetcode47 {
         doUnique(nums, 0);
         return ans;
     }
+
     //使用cache还是时间太长，需要n*n的时间复杂度，所以需要考虑剪支
     private void doUnique(int[] nums, int index) {
         if (index == size) {

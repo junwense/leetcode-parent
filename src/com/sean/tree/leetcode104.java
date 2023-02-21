@@ -13,7 +13,7 @@ public class leetcode104 {
         if (root == null) {
             return 0;
         }
-        int ans = Math.max(maxDepth(root.left), maxDepth(root.right))+1;
+        int ans = Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
         return ans;
     }
 

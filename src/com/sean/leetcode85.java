@@ -91,16 +91,17 @@ public class leetcode85 {
      * 优化后的计算最大矩形方法
      * 空间复杂度 3n
      * 时间复杂度 n
+     *
      * @param heights
      * @return
      */
     public int largestRectangleArea1(int[] heights) {
         int n = heights.length;
         //边界条件判断
-        if(n == 0){
+        if (n == 0) {
             return 0;
         }
-        if(n == 1){
+        if (n == 1) {
             return heights[0];
         }
         //left记录元素左边第一个小于它的元素的下标
@@ -108,7 +109,7 @@ public class leetcode85 {
         int[] left = new int[n];
         int[] right = new int[n];
         //stack是用来模拟栈的数组 ，类似于heights的索引素组
-        int[] stack = new int[n+1];
+        int[] stack = new int[n + 1];
         //tt记录栈中元素位置
         int tt = 0;
         for (int i = 0; i < n; i++) {

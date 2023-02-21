@@ -16,23 +16,23 @@ public class leetcode1248 {
 
     public int numberOfSubarrays(int[] nums, int k) {
 
-        int ans=0;
-        int size=nums.length;
-        int[] preSum=new int[size+1];
-        preSum[0]=0;
+        int ans = 0;
+        int size = nums.length;
+        int[] preSum = new int[size + 1];
+        preSum[0] = 0;
         for (int i = 1; i <= size; i++) {
-            preSum[i]=preSum[i-1]+nums[i-1]%2;
+            preSum[i] = preSum[i - 1] + nums[i - 1] % 2;
         }
-        int[] count=new int[size+1];
+        int[] count = new int[size + 1];
         //定义一个count数组 ，假如 count[1]=2 则 preSum 中值为1的节点有2个
         //使用数组是一种优化，因为这里preSum的值始终大于0且值的范围不大，不会超过size，可以使用数组当作寻址列表
         count[preSum[0]]++;
         for (int i = 1; i <= size; i++) {
             //这里用preSum[i]-k，主要是为了找到 preSum中值为preSum[i]-k的下标
             //这里校验大于0，主要是防止数组越界
-            if(preSum[i]-k>=0){
+            if (preSum[i] - k >= 0) {
                 //preSum中值为preSum[i]-k 的下标个数记录在count[preSum[i]-k]中，直接加总到ans里
-                ans+=count[preSum[i]-k];
+                ans += count[preSum[i] - k];
             }
             //把当前元素的preSum[i]前缀和的值加入到count[preSum[i]]，count[preSum[i]]的数量加一
             count[preSum[i]]++;
